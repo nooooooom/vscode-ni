@@ -1,29 +1,33 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode'
-import { execaCommand } from 'execa'
-import { COMMAND_KEYS, EXTENSION_NAME, getCommandName } from './constants'
+import { getCommandName } from './constants'
+import { Command, run } from './core'
+import { meta } from './meta'
 
-// This method is called when your extension is activated
-// your extension is activated the very first time the command is executed
+/**
+ * This method is called when your extension is activated
+ * your extension is activated the very first time the command is executed
+ *
+ * TODO: 
+ * 1. Show "upgrade" and "uninstall" commands when npm package is selected in package.json
+ * 2. Show "run" commands when script commands is selected in package.json
+ *
+ * @param context
+ */
 export function activate(context: vscode.ExtensionContext) {
-  const install = vscode.commands.registerCommand(
-    getCommandName(COMMAND_KEYS.Install),
-    async (uri: vscode.Uri) => {
-      if (uri) {
-        await execaCommand(`ni -C ${uri.fsPath}`, {
-          stdio: 'inherit',
-          encoding: 'utf-8',
-          cwd: process.cwd()
-        })
-        vscode.window.showInformationMessage('success')
-      } else {
-        vscode.window.showErrorMessage(`${EXTENSION_NAME}: No folder path selected`)
-      }
-    }
-  )
+  const ni = vscode.commands.registerCommand('ni', async (uri: vscode.Uri) => {
+    await run('ni', uri)
+  })
 
-  context.subscriptions.push(install)
+  context.subscriptions.push(
+    ni,
+    ...Object.entries(meta).map(([command, options]) => {
+      return vscode.commands.registerCommand(getCommandName(command), (uri: vscode.Uri) => {
+        run(command as Command, uri, options)
+      })
+    })
+  )
 }
 
 // This method is called when your extension is deactivated

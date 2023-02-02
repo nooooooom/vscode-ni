@@ -16,7 +16,9 @@
     "package-manager",
     "npm",
     "yarn",
-    "pnpm"
+    "pnpm",
+    "vscode",
+    "vscode-extension"
   ],
   "engines": {
     "vscode": "^1.74.0"
@@ -31,17 +33,78 @@
   "contributes": {
     "commands": [
       {
-        "command": "ni.install",
+        "command": "ni",
         "title": "Ni"
+      },
+      {
+        "command": "ni.ni",
+        "title": "Install"
+      },
+      {
+        "command": "ni.nr",
+        "title": "Run"
+      },
+      {
+        "command": "ni.nx",
+        "title": "Execute"
+      },
+      {
+        "command": "ni.nu",
+        "title": "Upgrade"
+      },
+      {
+        "command": "ni.nun",
+        "title": "Uninstall"
+      },
+      {
+        "command": "ni.nci",
+        "title": "Clean Install"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "ni.install"
+          "command": "ni",
+          "group": "ni"
+        },
+        {
+          "submenu": "ni.editor.context",
+          "group": "ni"
+        }
+      ],
+      "ni.editor.context": [
+        {
+          "command": "ni.ni",
+          "group": "ni"
+        },
+        {
+          "command": "ni.nr",
+          "group": "ni"
+        },
+        {
+          "command": "ni.nx",
+          "group": "ni"
+        },
+        {
+          "command": "ni.nu",
+          "group": "ni"
+        },
+        {
+          "command": "ni.nun",
+          "group": "ni"
+        },
+        {
+          "command": "ni.nci",
+          "group": "ni"
         }
       ]
-    }
+    },
+    "submenus": [
+      {
+        "id": "ni.editor.context",
+        "label": "Ni Commands"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -54,6 +117,7 @@
     "@types/mocha": "^9.0.0",
     "@types/node": "^18.11.18",
     "@types/vscode": "^1.73.0",
+    "bumpp": "^8.2.1",
     "execa": "^6.1.0",
     "ni": "^0.0.2",
     "tsup": "^6.5.0",
