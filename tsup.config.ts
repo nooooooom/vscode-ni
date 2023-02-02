@@ -5,5 +5,6 @@ export default <Options>{
   clean: true,
   sourcemap: true,
   format: ['cjs'],
-  external: ['vscode']
+  external: ['vscode'],
+  noExternal: ['execa']
 }

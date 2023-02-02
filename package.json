@@ -21,7 +21,7 @@
     "vscode-extension"
   ],
   "engines": {
-		"vscode": "^1.64.0"
+    "vscode": "^1.64.0"
   },
   "categories": [
     "Other"
@@ -112,12 +112,14 @@
     "watch": "tsup --watch",
     "test": "npm run compile && node ./node_modules/vscode/bin/test"
   },
+  "dependencies": {
+    "@antfu/ni": "*",
+    "execa": "^6.1.0"
+  },
   "devDependencies": {
     "@types/mocha": "^9.0.0",
     "@types/node": "^18.11.18",
-    "@types/vscode": "^1.73.0",
-    "execa": "^6.1.0",
-    "ni": "^0.0.2",
+    "@types/vscode": "^1.64.0",
     "tsup": "^6.5.0",
     "typescript": "^4.9.4"
   }

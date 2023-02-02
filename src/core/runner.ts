@@ -13,8 +13,8 @@ export function runNi(command: Command, directory: string, inlineOptions: string
 
   vscode.window.withProgress(
     {
-      location: vscode.ProgressLocation.Notification,
-      title: commandName,
+      location: vscode.ProgressLocation.Window,
+      title: `${EXTENSION_NAME}: ${commandName}`,
       cancellable: true
     },
     () => {
