@@ -2,7 +2,7 @@
   "name": "vscode-ni",
   "displayName": "vscode-ni",
   "description": "Using @antfu/ni via vscode extension.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "publisher": "nooooooom",
   "license": "MIT",
   "repository": {
@@ -110,7 +110,8 @@
     "vscode:prepublish": "npm run compile",
     "compile": "tsup",
     "watch": "tsup --watch",
-    "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    "test": "npm run compile && node ./node_modules/vscode/bin/test",
+    "release": "bumpp package.json --commit --push --tag && vsce publish"
   },
   "dependencies": {
     "@antfu/ni": "*",
@@ -120,6 +121,7 @@
     "@types/mocha": "^9.0.0",
     "@types/node": "^18.11.18",
     "@types/vscode": "^1.64.0",
+    "bumpp": "^8.2.1",
     "tsup": "^6.5.0",
     "typescript": "^4.9.4"
   }
