@@ -21,7 +21,7 @@
     "vscode-extension"
   ],
   "engines": {
-    "vscode": "^1.74.0"
+		"vscode": "^1.64.0"
   },
   "categories": [
     "Other"
