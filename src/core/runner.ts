@@ -11,8 +11,6 @@ export function runNi(command: Command, directory: string, inlineOptions: string
   const cwd = process.cwd()
   const commandName = COMMAND_KEYS[command] || command
 
-  vscode.window.showInformationMessage(directory)
-
   vscode.window.withProgress(
     {
       location: vscode.ProgressLocation.Notification,
