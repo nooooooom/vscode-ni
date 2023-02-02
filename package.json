@@ -110,14 +110,12 @@
     "vscode:prepublish": "npm run compile",
     "compile": "tsup",
     "watch": "tsup --watch",
-    "test": "npm run compile && node ./node_modules/vscode/bin/test",
-    "release": "bumpp && npm publish"
+    "test": "npm run compile && node ./node_modules/vscode/bin/test"
   },
   "devDependencies": {
     "@types/mocha": "^9.0.0",
     "@types/node": "^18.11.18",
     "@types/vscode": "^1.73.0",
-    "bumpp": "^8.2.1",
     "execa": "^6.1.0",
     "ni": "^0.0.2",
     "tsup": "^6.5.0",
