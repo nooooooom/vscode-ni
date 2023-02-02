@@ -1,0 +1,62 @@
+{
+  "name": "vscode-ni",
+  "displayName": "vscode-ni",
+  "description": "Using @antfu/ni via vscode extension.",
+  "version": "0.0.1",
+  "publisher": "nooooooom",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nooooooom/vscode-ni.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nooooooom/vscode-ni/issues"
+  },
+  "keywords": [
+    "package-manager",
+    "npm",
+    "yarn",
+    "pnpm"
+  ],
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ni.install",
+        "title": "Ni"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "ni.install"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsup",
+    "watch": "tsup --watch",
+    "test": "npm run compile && node ./node_modules/vscode/bin/test",
+    "release": "bumpp && npm publish"
+  },
+  "devDependencies": {
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^18.11.18",
+    "@types/vscode": "^1.73.0",
+    "execa": "^6.1.0",
+    "ni": "^0.0.2",
+    "tsup": "^6.5.0",
+    "typescript": "^4.9.4"
+  }
+}
