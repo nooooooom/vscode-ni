@@ -2,7 +2,7 @@
   "name": "vscode-ni",
   "displayName": "vscode-ni",
   "description": "Using @antfu/ni via vscode extension.",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "nooooooom",
   "license": "MIT",
   "repository": {
