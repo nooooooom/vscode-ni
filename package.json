@@ -4,6 +4,7 @@
   "description": "Using @antfu/ni via vscode extension.",
   "version": "0.0.5",
   "publisher": "nooooooom",
+  "author": "nooooooom <https://github.com/nooooooom>",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -113,14 +114,11 @@
     "test": "npm run compile && node ./node_modules/vscode/bin/test",
     "release": "bumpp package.json --commit --push --tag && vsce publish"
   },
-  "dependencies": {
-    "@antfu/ni": "*",
-    "execa": "^6.1.0"
-  },
   "devDependencies": {
     "@types/mocha": "^9.0.0",
     "@types/node": "^18.11.18",
     "@types/vscode": "^1.64.0",
+    "execa": "^6.1.0",
     "bumpp": "^8.2.1",
     "tsup": "^6.5.0",
     "typescript": "^4.9.4"
