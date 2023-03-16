@@ -1,17 +1,19 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
+import { NiCommands } from '@nooooooom/unpm'
 import * as vscode from 'vscode'
 import { getCommandName } from './constants'
-import { Command, run } from './core'
+import { run } from './core'
 import { meta } from './meta'
 
 /**
  * This method is called when your extension is activated
  * your extension is activated the very first time the command is executed
  *
- * TODO: 
+ * TODO:
  * 1. Show "upgrade" and "uninstall" commands when npm package is selected in package.json
  * 2. Show "run" commands when script commands is selected in package.json
+ * 3. Monorepo
  *
  * @param context
  */
@@ -24,7 +26,7 @@ export function activate(context: vscode.ExtensionContext) {
     ni,
     ...Object.entries(meta).map(([command, options]) => {
       return vscode.commands.registerCommand(getCommandName(command), (uri: vscode.Uri) => {
-        run(command as Command, uri, options)
+        run(command as NiCommands, uri, options)
       })
     })
   )

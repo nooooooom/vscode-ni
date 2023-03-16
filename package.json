@@ -39,27 +39,27 @@
       },
       {
         "command": "ni.ni",
-        "title": "Install"
+        "title": "Install [ni]"
       },
       {
         "command": "ni.nr",
-        "title": "Run"
+        "title": "Run [nr]"
       },
       {
-        "command": "ni.nx",
-        "title": "Execute"
+        "command": "ni.nix",
+        "title": "Execute [nix]"
       },
       {
         "command": "ni.nu",
-        "title": "Upgrade"
+        "title": "Upgrade [nu]"
       },
       {
         "command": "ni.nun",
-        "title": "Uninstall"
+        "title": "Uninstall [nun]"
       },
       {
         "command": "ni.nci",
-        "title": "Clean Install"
+        "title": "Clean Install [nci]"
       }
     ],
     "menus": {
@@ -83,7 +83,7 @@
           "group": "ni"
         },
         {
-          "command": "ni.nx",
+          "command": "ni.nix",
           "group": "ni"
         },
         {
@@ -108,19 +108,22 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
+    "vscode:prepublish": "pnpm run compile",
     "compile": "tsup",
     "watch": "tsup --watch",
-    "test": "npm run compile && node ./node_modules/vscode/bin/test",
+    "test": "pnpm run compile && node ./node_modules/vscode/bin/test",
     "release": "bumpp package.json --commit --push --tag && vsce publish"
   },
   "devDependencies": {
     "@types/mocha": "^9.0.0",
     "@types/node": "^18.11.18",
     "@types/vscode": "^1.64.0",
-    "execa": "^6.1.0",
     "bumpp": "^8.2.1",
+    "execa": "^6.1.0",
     "tsup": "^6.5.0",
     "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "@nooooooom/unpm": "^0.0.3"
   }
 }

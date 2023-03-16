@@ -1,14 +1,17 @@
+import { NiCommands } from '@nooooooom/unpm'
+
 export const EXTENSION_KEY = 'ni'
 
 export const EXTENSION_NAME = 'vscode-ni'
 
-export const COMMAND_KEYS = {
+export const COMMAND_NAMES: Record<NiCommands, string> = {
   ni: 'install',
   nr: 'run',
-  nx: 'execute',
+  nix: 'execute',
   nu: 'upgrade',
   nun: 'uninstall',
-  nci: 'clean-install'
+  nci: 'clean-install',
+  na: 'agent'
 }
 
 export const getCommandName = (command: string) => {

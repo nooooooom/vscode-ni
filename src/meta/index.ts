@@ -1,13 +1,14 @@
-import { Command, RunOptions } from '../core'
+import { NiCommands } from '@nooooooom/unpm'
+import { RunOptions } from '../core'
 
-export const meta: Record<Command, RunOptions | undefined> = {
+export const meta: Record<NiCommands, RunOptions | undefined> = {
   ni: {
     showInputBox: true
   },
   nr: {
     showInputBox: true
   },
-  nx: {
+  nix: {
     showInputBox: true
   },
   nu: {
@@ -17,6 +18,9 @@ export const meta: Record<Command, RunOptions | undefined> = {
     showInputBox: true
   },
   nci: {
+    showInputBox: true
+  },
+  na: {
     showInputBox: true
   }
 }
