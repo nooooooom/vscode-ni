@@ -115,6 +115,7 @@
     "release": "bumpp package.json --commit --push --tag && vsce publish"
   },
   "devDependencies": {
+    "@nooooooom/unpm": "^0.0.3",
     "@types/mocha": "^9.0.0",
     "@types/node": "^18.11.18",
     "@types/vscode": "^1.64.0",
@@ -122,8 +123,5 @@
     "execa": "^6.1.0",
     "tsup": "^6.5.0",
     "typescript": "^4.9.4"
-  },
-  "dependencies": {
-    "@nooooooom/unpm": "^0.0.3"
   }
 }
