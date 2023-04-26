@@ -63,7 +63,7 @@ export async function run(command: NiCommands, uri: Uri, options: RunOptions = {
     vscode.window.withProgress(
       {
         location: vscode.ProgressLocation.Window,
-        title: `${EXTENSION_NAME}: ${commandName}`,
+        title: `${EXTENSION_NAME}: ${agent} ${commandName}`,
         cancellable: true
       },
       () => {
